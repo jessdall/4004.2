@@ -122,3 +122,14 @@ def authenticate_user(username, provided_password):
             return hashlib.sha256(provided_password.encode()).hexdigest() == stored_password
         return False
 
+
+# Set up the database tables
+setup_database()
+
+# Example usage:
+add_user('admin', 'password123', 'administrator')
+authenticated = authenticate_user('admin', 'password123')
+print("Authentication successful:", authenticated)
+
+add_inventory_item(1, 'Widgets', 100, 10)
+print("Current inventory:", view_inventory())
